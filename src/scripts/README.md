@@ -1,0 +1,1 @@
+Chạy train_and_save.py để huấn luyện và lưu mô hình XGBoost
