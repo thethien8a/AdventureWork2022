@@ -304,18 +304,38 @@ select:invalid {
 .prediction-meta {
   display: grid;
   gap: 0.75rem;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  /* give fields a bit more room before wrapping; will still collapse on narrow screens */
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   margin: 0;
 }
 
 .prediction-meta dt {
   font-weight: 600;
   color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .prediction-meta dd {
   margin: 0;
   color: var(--text);
+  /* wrap long values (product names, multiple words) cleanly */
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+@media (max-width: 640px) {
+  .prediction-meta {
+    grid-template-columns: 1fr; /* stack entries on mobile */
+  }
+  .prediction-meta dt {
+    white-space: normal;
+  }
+  .prediction-meta dd {
+    margin-top: 0.25rem;
+  }
 }
 
 .badge {
