@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AdventureWorks Revenue Predictor</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="brand">
+        <div class="brand-icon">⚡</div>
+        <div>
+          <h1>AdventureWorks Revenue Predictor</h1>
+          <p>Dự đoán doanh thu cho một đơn hàng ngay trong trình duyệt</p>
+        </div>
+      </div>
+      <button id="toggle-theme" type="button" aria-pressed="false">🌓</button>
+    </header>
+
+    <main class="app-main">
+      <section class="card form-card">
+        <h2>Nhập thông tin đơn hàng</h2>
+        <form id="prediction-form" novalidate>
+          <div class="form-grid">
+            <label class="field">
+              <span>Loại khách hàng <sup>*</sup></span>
+              <select id="PersonType" name="PersonType" required></select>
+            </label>
+
+            <label class="field">
+              <span>Số lượng đặt hàng <sup>*</sup></span>
+              <input
+                type="number"
+                id="OrderQty"
+                name="OrderQty"
+                min="1"
+                step="1"
+                required
+                placeholder="Ví dụ: 5"
+              />
+            </label>
+
+            <label class="field">
+              <span>Sản phẩm <sup>*</sup></span>
+              <input id="Name" name="Name" list="product-options" required placeholder="Chọn hoặc gõ để tìm" />
+              <datalist id="product-options"></datalist>
+            </label>
+
+            <label class="field">
+              <span>Dòng sản phẩm <sup>*</sup></span>
+              <select id="ProductLine" name="ProductLine" required></select>
+            </label>
+
+            <label class="field">
+              <span>Lãnh thổ bán hàng <sup>*</sup></span>
+              <select id="Name_territory" name="Name_territory" required></select>
+            </label>
+
+            <label class="field">
+              <span>Mã quốc gia <sup>*</sup></span>
+              <select id="CountryRegionCode" name="CountryRegionCode" required></select>
+            </label>
+
+            <label class="field">
+              <span>Nhóm khu vực <sup>*</sup></span>
+              <select id="Group" name="Group" required></select>
+            </label>
+
+            <label class="field">
+              <span>Ngày đặt hàng <sup>*</sup></span>
+              <input type="date" id="OrderDate" name="OrderDate" required />
+            </label>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn primary">
+              <span class="btn-label">Dự đoán ngay</span>
+              <span class="btn-spinner" hidden></span>
+            </button>
+            <button type="reset" class="btn ghost">Xóa dữ liệu</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="card results-card" aria-live="polite">
+        <h2>Kết quả dự đoán</h2>
+        <div id="result-placeholder" class="result-placeholder">
+          <p>Chưa có dự đoán nào. Hãy nhập thông tin và nhấn “Dự đoán ngay”.</p>
+        </div>
+        <div id="result" class="result" hidden></div>
+        <details class="raw-response" hidden>
+          <summary>Xem JSON trả về</summary>
+          <pre id="raw-json"></pre>
+        </details>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <p>
+        Made with ❤️ by Nguyen The Thien
+      </p>
+    </footer>
+
+    <template id="result-template">
+      <div class="result-head">
+        <span class="badge success">Thành công</span>
+        <time></time>
+      </div>
+      <p class="prediction-value"></p>
+      <dl class="prediction-meta"></dl>
+    </template>
+
+    <template id="error-template">
+      <div class="result-head">
+        <span class="badge danger">Thất bại</span>
+        <time></time>
+      </div>
+      <p class="error-message"></p>
+      <pre class="error-detail"></pre>
+    </template>
+
+    <script src="app.js" type="module"></script>
+  </body>
+</html>
+
