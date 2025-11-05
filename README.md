@@ -160,11 +160,14 @@ python src/scripts/train_and_save.py
 
 ## 📊 Dashboard Power BI
 
-[Chèn ảnh dashboard Power BI ở đây]
+<img width="1321" height="743" alt="image" src="https://github.com/user-attachments/assets/aa4fb3d9-09a0-4a64-8dc1-02a47e714c3d" />
+
 
 ## 🌐 Website Dự đoán Doanh thu
 
-[Chèn ảnh website dự đoán doanh thu ở đây]
+<img width="1904" height="910" alt="image" src="https://github.com/user-attachments/assets/07218ed5-0b46-48a2-a99a-7b96999a32d2" />
+
+
 
 ## 📋 API Documentation
 
